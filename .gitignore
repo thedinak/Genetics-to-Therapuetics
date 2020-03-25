@@ -131,3 +131,4 @@ dmypy.json
 #pickle files that seem to making things bad
 *.p
 *.gz
+*.pickle
