@@ -1,0 +1,9 @@
+To get data files:
+    visit: https://portal.gdc.cancer.gov/repository?facetTab=cases <- hover over this link while holding down cntrl
+    click: Upload Case Set
+  upload generated txt file
+    after upload click on files:
+   - choose Experimental Strategy - RNA-Seq
+   - choose Workflow Type - HTSeq - FPKM)
+  click: Add all files to cart, then go to the cart (upper right corner)
+    download the cart, and the metadata file

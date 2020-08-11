@@ -128,7 +128,12 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#pickle files that seem to making things bad
+#pickle files
 *.p
 *.gz
 *.pickle
+
+#raw data/notebooks
+/Data
+/raw_rna_data
+/Rough_draft
