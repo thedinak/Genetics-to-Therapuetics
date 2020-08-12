@@ -62,5 +62,3 @@ kidney_filters_table = {
 fields_table = ["case_id", "primary_site", "project.project_id"]
 
 cases_endpoint = 'https://api.gdc.cancer.gov/cases'
-
-/Users/dinakats/Desktop/SPICED/final_proj_git_renew/Genetics-to-Therapuetics/Data/kidney2test
