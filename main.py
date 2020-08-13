@@ -138,11 +138,14 @@ if __name__ == "__main__":
     if selection.lower() == 'yes':
         if download_status.lower() == 'no':
             clinical_data = run_clinical_data_collection()
-            download_status = input("Have you downloaded the data? ")
+            download_status = input("Have you downloaded the rna seq data? ")
             if download_status.lower() == 'yes':
                 rna_data = run_rna_formatting()
                 limited_data = combine_rna_clinical(clinical_data, rna_data)
                 run_summary = run_data_predictions(limited_data)
+            elif download_status.lower() != 'yes':
+                with open("data_download_instructions.txt") as instructions:
+                    print(instructions)
         if download_status.lower() == 'yes':
             rna_data_status = input("Did you save the clinical and"
                                     "rna dataframes? ")
