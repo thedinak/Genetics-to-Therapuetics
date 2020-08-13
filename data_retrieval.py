@@ -3,7 +3,6 @@ import json
 import numpy as np
 import pandas as pd
 import os
-import pickle
 import regex as re
 import tarfile
 from fuzzywuzzy import process
@@ -210,7 +209,8 @@ def get_all_clinical_files_for_disease(clinical_data_dataframe,
 
         file_name = f'{project_id}.tar.gz'
 
-        with open(f'{root_dir_for_files}/{file_name}', "wb") as output_file:
+        with open(os.path.join(root_dir_for_files, file_name),
+                  "wb") as output_file:
             output_file.write(response.content)
 
 
