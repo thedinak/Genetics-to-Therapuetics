@@ -44,7 +44,7 @@ def run_clinical_data_collection():
 
 
 def run_rna_formatting():
-    rna_root_dir = input("Print directory where rna seq is saved ")
+    rna_root_dir = input("Print file path for downloaded rna data ")
     rna_folder_name = input("Print the folder name where unzipped rna seq data"
                             "should be saved ")
     rna_format.unzip_rna_seq_data(rna_root_dir, rna_folder_name)
