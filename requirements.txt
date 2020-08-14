@@ -1,3 +1,4 @@
 fuzzywuzzy
 pandas
 python-Levenshtein
+tabulate

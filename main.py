@@ -4,6 +4,7 @@ import data_predictions
 import example_variables
 import os
 import pickle
+import tabulate
 
 
 def run_clinical_data_collection():
