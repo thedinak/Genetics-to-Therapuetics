@@ -145,7 +145,7 @@ if __name__ == "__main__":
                 run_summary = run_data_predictions(limited_data)
             elif download_status.lower() != 'yes':
                 with open("data_download_instructions.txt") as instructions:
-                    print(instructions)
+                    print(instructions.read())
         if download_status.lower() == 'yes':
             rna_data_status = input("Did you save the clinical and"
                                     "rna dataframes? ")
