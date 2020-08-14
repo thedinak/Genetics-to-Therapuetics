@@ -8,7 +8,7 @@ Roughly 1.8 million adults are diagnosed with cancer in the United States each y
 Chemotherapy is generally a non-targeted, non-specific treatment. What if there is something broadly in the gene expression of a patient that may point to what chemotherapuetic may be best for them? Developing a methodology to could minimize bad outcomes, side effects, and could potentially be generalized to smaller cancer populations like hepatoblastoma patients.
 
 # Feature Reduction of RNA-seq Data
-![RNA-seq data for one drug of interest][https://github.com/thedinak/Genetics-to-Therapuetics/blob/master/Jupyter_notebooks/gem_heatmap.jpg]
+![RNA-seq data for one drug of interest](https://github.com/thedinak/Genetics-to-Therapuetics/blob/master/Jupyter_notebooks/gem_heatmap.jpg)
 
 # How to run the script
 
