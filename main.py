@@ -4,7 +4,6 @@ import data_predictions
 import example_variables
 import os
 import pickle
-import tabulate
 
 
 def run_clinical_data_collection():
@@ -72,7 +71,8 @@ def combine_rna_clinical(clinical_dataframe, rna_dataframe):
     genes = rna_data.columns[1:-1].tolist()
     full_data = rna_format.concat_rna_to_clinical_data(clinical_data, rna_data)
     limited_data = rna_format.limit_full_data_for_pca(full_data, genes)
-    print(limited_data.standard_drugs.value_counts().to_markdown())
+    print("Sample counts by drug (top 10) ")
+    print(limited_data.standard_drugs.value_counts()[0:10].to_markdown())
     pickle_choice = input("Would you like to save the combined clinical and "
                           "rna dataframe for future use? ")
     if pickle_choice.lower() == 'yes':
