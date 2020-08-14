@@ -28,7 +28,7 @@ def unzip_individual_rna_seq_files(root_dir):
     # dictionary of file_id:case_id
     for directory in os.listdir(root_dir):
         try:
-            for filename in os.listdir(root_dir + '/' + directory):
+            for filename in os.listdir(os.path.join(root_dir, directory):
                 if ".gz" in filename:
                     files_to_unpack.append(os.path.join(root_dir,
                                                         directory, filename))
