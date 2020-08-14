@@ -165,6 +165,9 @@ if __name__ == "__main__":
                     elif combo_data_status.lower() == 'yes':
                         run_summary = run_data_predictions(limited_data)
                 elif rna_data_status.lower() != 'yes':
+                    name = input("Input clinical file name ").split(".")[0]
+                    clinical_data = pickle.load(open(f'{name}.pickle',
+                                                'rb'))
                     rna_data = run_rna_formatting()
                     limited_data = combine_rna_clinical(clinical_data,
                                                         rna_data)
