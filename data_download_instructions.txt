@@ -1,5 +1,5 @@
 To get data files:
-    visit: https://portal.gdc.cancer.gov/repository?facetTab=cases <- hover over this link while holding down cntrl
+    visit: https://portal.gdc.cancer.gov/repository?facetTab=cases <- hover over this link while holding down cntrl if on mac
     click: Upload Case Set
   upload generated txt file
     after upload click on files:
