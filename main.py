@@ -48,7 +48,7 @@ def run_rna_formatting():
     rna_folder_name = input("Print the folder name where unzipped rna seq data"
                             "should be saved ")
     rna_format.unzip_rna_seq_data(rna_file, rna_folder_name)
-    rna_data_folder = os.getcwd()+f'/{rna_folder_name}'
+    rna_data_folder = os.path.join(os.getcwd(), rna_folder_name)
     print(rna_data_folder)
     kidney_files, kidney_dfs, kidney_metadata_dict = (
                               rna_format.unzip_individual_rna_seq_files
