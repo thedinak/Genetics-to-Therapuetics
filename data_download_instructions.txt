@@ -3,6 +3,7 @@ To get data files:
     click: Upload Case Set
   upload generated txt file
     after upload click on files:
+    under the files tab:
    - choose Experimental Strategy - RNA-Seq
    - choose Workflow Type - HTSeq - FPKM)
   click: Add all files to cart, then go to the cart (upper right corner)

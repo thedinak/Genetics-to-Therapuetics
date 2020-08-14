@@ -147,7 +147,7 @@ if __name__ == "__main__":
                 with open("data_download_instructions.txt") as instructions:
                     print(instructions.read())
         if download_status.lower() == 'yes':
-            rna_data_status = input("Did you save the clinical and"
+            rna_data_status = input("Did you save the clinical and "
                                     "rna dataframes? ")
             combo_data_status = input("Did you save the combined dataframe? ")
             if rna_data_status.lower() == 'yes':
