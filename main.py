@@ -82,10 +82,10 @@ def combine_rna_clinical(clinical_dataframe, rna_dataframe):
 
 
 def run_data_predictions(limited_data):
-    if limited_data == 0:
+    if limited_data is None:
         name = input("Input limited data file name ")
         limited_data = pickle.load(open(f'{name}.pickle', 'rb'))
-    elif limited_data != 0:
+    elif limited_data is not None:
         pass
     df = data_predictions.one_hot_encode_vital_status(limited_data)
     drugs_of_interest = df.standard_drugs.value_counts()[0:3].index.tolist()
@@ -133,7 +133,7 @@ def run_data_predictions(limited_data):
 
 
 if __name__ == "__main__":
-    limited_data = 0
+    limited_data = None
     selection = input("Would you like to run the kidney cancer example? ")
     download_status = input("Did you already download the RNA data? ")
     if selection.lower() == 'yes':
