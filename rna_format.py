@@ -38,7 +38,7 @@ def unzip_individual_rna_seq_files(root_dir):
         dfs.append(pd.read_csv
                    (file, compression='gzip', sep="\t", names=['gene',
                     convert_filename_caseuuid[os.path.split(os.path.dirname
-                                                            (file)[1]),
+                                                            (file)[1])],
                     index_col='gene'))
         # these dfs already have the correct case id name
     return files_to_unpack, dfs, convert_filename_caseuuid
