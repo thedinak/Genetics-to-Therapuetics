@@ -151,18 +151,25 @@ if __name__ == "__main__":
                                          "dataframe? ")
             rna_data_status = input("Did you save the rna dataframe? ")
             combo_data_status = input("Did you save the combined dataframe? ")
-            if rna_data_status.lower() == 'yes':
-                if combo_data_status.lower() != 'yes':
-                    name = input("Input clinical file name ").split(".")[0]
-                    clinical_data = pickle.load(open(f'{name}.pickle', 'rb'))
-                    name = input("Input rna file name ").split(".")[0]
-                    rna_data = pickle.load(open(f'{name}.pickle', 'rb'))
+            if clinical_data_status.lower() == 'yes':
+                if rna_data_status.lower() == 'yes':
+                    if combo_data_status.lower() != 'yes':
+                        name = input("Input clinical file name ").split(".")[0]
+                        clinical_data = pickle.load(open(f'{name}.pickle',
+                                                    'rb'))
+                        name = input("Input rna file name ").split(".")[0]
+                        rna_data = pickle.load(open(f'{name}.pickle', 'rb'))
+                        limited_data = combine_rna_clinical(clinical_data,
+                                                            rna_data)
+                        run_summary = run_data_predictions(limited_data)
+                    elif combo_data_status.lower() == 'yes':
+                        run_summary = run_data_predictions(limited_data)
+                elif rna_data_status.lower() != 'yes':
+                    rna_data = run_rna_formatting()
                     limited_data = combine_rna_clinical(clinical_data,
                                                         rna_data)
                     run_summary = run_data_predictions(limited_data)
-                elif combo_data_status.lower() == 'yes':
-                    run_summary = run_data_predictions(limited_data)
-            elif rna_data_status.lower != 'yes':
+            elif clinical_data_status.lower != 'yes':
                 clinical_data = run_clinical_data_collection()
                 rna_data = run_rna_formatting()
                 limited_data = combine_rna_clinical(clinical_data, rna_data)
