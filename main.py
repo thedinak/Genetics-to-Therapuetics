@@ -44,10 +44,10 @@ def run_clinical_data_collection():
 
 
 def run_rna_formatting():
-    rna_root_dir = input("Print file path for downloaded rna data ")
+    rna_file = input("Print name of downloaded rna data file ")
     rna_folder_name = input("Print the folder name where unzipped rna seq data"
                             "should be saved ")
-    rna_format.unzip_rna_seq_data(rna_root_dir, rna_folder_name)
+    rna_format.unzip_rna_seq_data(rna_file, rna_folder_name)
     rna_data_folder = os.getcwd()+f'/{rna_folder_name}'
     print(rna_data_folder)
     kidney_files, kidney_dfs, kidney_metadata_dict = (

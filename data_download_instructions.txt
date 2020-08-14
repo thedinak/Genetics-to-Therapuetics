@@ -8,3 +8,4 @@ To get data files:
    - choose Workflow Type - HTSeq - FPKM)
   click: Add all files to cart, then go to the cart (upper right corner)
     download the cart, and the metadata file
+    Place both the downloaded .tar.gz data file and the metadata file into the Genetics-to-Therapuetics folder

@@ -42,6 +42,7 @@ def unzip_individual_rna_seq_files(root_dir):
         # these dfs already have the correct case id name
     return files_to_unpack, dfs, convert_filename_caseuuid
 
+
 def concat_all_rna_seq(dfs):
     ''' Takes each individual rna seq file and concatenates them into one '''
     rna_seq_data = pd.concat(dfs, join="outer", axis=1).T
