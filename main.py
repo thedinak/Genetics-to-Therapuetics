@@ -4,6 +4,7 @@ import data_predictions
 import example_variables
 import os
 import pickle
+import pandas as pd
 
 
 def run_clinical_data_collection():
@@ -97,7 +98,8 @@ def run_data_predictions(limited_data):
                                    reduction_strategy='stdev',
                                    percent_remaining=[0.05, 0.1, 0.25,
                                                       0.5, 0.75]))
-    print(evals_stdev_no_pca)
+    evals_stdev_no_pca_df = pd.concat(evals_stdev_no_pca)
+    print(evals_stdev_no_pca_df.to_markdown())
     corr_coeff = (data_predictions.determine_correlation_coefficients
                   (split_drug_dfs))
     evals_corr_no_pca, no_pca = (data_predictions.
@@ -107,7 +109,6 @@ def run_data_predictions(limited_data):
                                   percent_remaining=[0.05, 0.1, 0.25,
                                                      0.5, 0.75],
                                   correlation_coefficients=corr_coeff))
-    print(evals_corr_no_pca.keys())
     corr_pca_evals, corr_pca_stats = (data_predictions.
                                       reduction_metric_optimization
                                       (split_drug_dfs,
@@ -117,7 +118,6 @@ def run_data_predictions(limited_data):
                                        correlation_coefficients=corr_coeff,
                                        scale='standard', pca='pca',
                                        threshold=[0.01, 0.2, 0.5, 0.9]))
-    print(corr_pca_evals)
     minibatch_evals, minibatch_pca_stats = (data_predictions.
                                             reduction_metric_optimization
                                             (split_drug_dfs,
@@ -125,11 +125,12 @@ def run_data_predictions(limited_data):
                                              scale='standard',
                                              pca='sparse',
                                              n_components=[15, 10, 5, 2]))
-    print(minibatch_evals)
+    minibatch_df = pd.concat(minibatch_evals)
+    print(minibatch_df.to_markdown())
     eval_list = [evals_stdev_no_pca, evals_corr_no_pca,
                  corr_pca_evals, minibatch_evals]
     run_summary = data_predictions.present_run_summary(eval_list)
-    print(run_summary)
+    print(run_summary.to_markdown())
 
 
 if __name__ == "__main__":
@@ -152,7 +153,9 @@ if __name__ == "__main__":
                                          "dataframe? ")
             rna_data_status = input("Did you save the rna dataframe? ")
             combo_data_status = input("Did you save the combined dataframe? ")
-            if clinical_data_status.lower() == 'yes':
+            if combo_data_status == 'yes':
+                run_summary = run_data_predictions(limited_data)
+            elif clinical_data_status.lower() == 'yes':
                 if rna_data_status.lower() == 'yes':
                     if combo_data_status.lower() != 'yes':
                         name = input("Input clinical file name ").split(".")[0]
@@ -166,7 +169,8 @@ if __name__ == "__main__":
                     elif combo_data_status.lower() == 'yes':
                         run_summary = run_data_predictions(limited_data)
                 elif rna_data_status.lower() != 'yes':
-                    name = input("Input clinical file name ").split(".")[0]
+                    clinical_name = input("Input clinical file name ")
+                    clinical_name = clinical_name.split(".")[0]
                     clinical_data = pickle.load(open(f'{name}.pickle',
                                                 'rb'))
                     rna_data = run_rna_formatting()

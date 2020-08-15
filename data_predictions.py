@@ -307,9 +307,5 @@ def present_run_summary(all_results_dictionaries):
     max_values = summary_df.unstack().max()
     best_methods = max_values.copy
     for combination in max_values.index:
-        best_methods[combination] = summary_df.unstack()[summary_df.unstack()
-                                                         [combination]
-                                                         ==
-                                                         summary_df.unstack()
-                                                         [combination].max()]
+        best_methods[combination] = summary_df.unstack()[summary_df.unstack()[combination] == summary_df.unstack()[combination].max()]
     return best_methods
