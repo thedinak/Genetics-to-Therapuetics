@@ -25,10 +25,10 @@ The following will allow the user to an example data analysis with kidney cancer
 
 1. Clone the repository `git clone https://github.com/thedinak/Genetics-to-Therapuetics.git`
 
-2. Go into the folder `cd Genetics_to_Therapuetics`
+2. Go into the folder `cd genetics_to_therapuetics`
 
 3. Install requirements `pip install -r requirements.txt`
 
 4. Run `python main.py`, follow the command-line instructions.
 
-To run a similar analysis for another cancer type, the user can change the kidney_filters_table in the example_variables file to a filter that reflect the data they would like to collect. 
+To run a similar analysis for another cancer type, the user can change the kidney_filters_table in the [example_variables](https://github.com/thedinak/Genetics_to_Therapuetics/blob/master/example_variables.py) file to a filter that reflect the data they would like to collect. 
