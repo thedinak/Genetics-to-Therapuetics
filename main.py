@@ -109,6 +109,7 @@ def run_data_predictions(limited_data):
                                   percent_remaining=[0.05, 0.1, 0.25,
                                                      0.5, 0.75],
                                   correlation_coefficients=corr_coeff))
+    print("This might take awhile ")
     corr_pca_evals, corr_pca_stats = (data_predictions.
                                       reduction_metric_optimization
                                       (split_drug_dfs,
@@ -118,6 +119,7 @@ def run_data_predictions(limited_data):
                                        correlation_coefficients=corr_coeff,
                                        scale='standard', pca='pca',
                                        threshold=[0.01, 0.2, 0.5, 0.9]))
+    print("This may take even longer")
     minibatch_evals, minibatch_pca_stats = (data_predictions.
                                             reduction_metric_optimization
                                             (split_drug_dfs,
@@ -130,6 +132,7 @@ def run_data_predictions(limited_data):
     eval_list = [evals_stdev_no_pca, evals_corr_no_pca,
                  corr_pca_evals, minibatch_evals]
     run_summary = data_predictions.present_run_summary(eval_list)
+    print("Run Summary: ")
     print(run_summary.to_markdown())
 
 
