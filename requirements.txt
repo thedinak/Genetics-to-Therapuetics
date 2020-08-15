@@ -2,3 +2,6 @@ fuzzywuzzy
 pandas
 python-Levenshtein
 tabulate
+requests
+numpy
+scikit-learn
