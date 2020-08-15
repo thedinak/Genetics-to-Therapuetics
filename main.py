@@ -131,9 +131,9 @@ def run_data_predictions(limited_data):
     print(minibatch_df.to_markdown())
     eval_list = [evals_stdev_no_pca, evals_corr_no_pca,
                  corr_pca_evals, minibatch_evals]
-    run_summary = data_predictions.present_run_summary(eval_list)
+    run_summary, max_values = data_predictions.present_run_summary(eval_list)
     print("Run Summary: ")
-    print(run_summary.to_markdown())
+    print(max_values.to_markdown())
 
 
 if __name__ == "__main__":
