@@ -7,11 +7,17 @@ Roughly 1.8 million adults are diagnosed with cancer in the United States each y
 
 Chemotherapy is generally a non-targeted, non-specific treatment. What if there is something broadly in the gene expression of a patient that may point to what chemotherapuetic may be best for them? Developing a robust methodology to could minimize bad outcomes, side effects, and could potentially be generalized to smaller cancer populations like hepatoblastoma patients.
 
+In this project, adult kidney cancer data is collected and analyzed, in part because like hepatoblastoma, it is sometimes wnt-beta catenin driven. 
+
 RNA-seq data and clinical data is pulled from the Cancer Genome Atlas.
 
 # Feature Reduction of RNA-seq Data
 ![RNA-seq data for one drug of interest](https://github.com/thedinak/Genetics-to-Therapuetics/blob/master/Jupyter_notebooks/gem_heatmap.jpg)
-RNA-seq data from the Cancer Genome Atlas provides over 60,000 genes per patient. In order to do accurate and robust prediction, these features need to be reduced, or you end up with a highly overfit model. This project provides code to explore various strategies for feature reduction of RNA-seq data, including correlation to the outcome, amount of variability in the gene, PCA and mini-batch sparse PCA. After combining these various strategies, the user can evaluate the best methodology based on their metric of choice.  
+RNA-seq data from the Cancer Genome Atlas provides over 60,000 genes per patient. In order to do accurate and robust prediction, these features need to be reduced, to avoid a highly overfit model. This project provides code to explore various strategies for feature reduction of RNA-seq data, including correlation to the outcome, amount of variability in the gene, PCA and mini-batch sparse PCA. After combining these various strategies, the user can evaluate the best methodology based on their metric of choice.  
+
+Use of feature reduction improved accuracy, recall and precision in the example kidney cancer dataset, although different methodologies were better for different metrics, and were also dependent on the drug given. 
+
+Some limitations of this work: it does not account for the fact that patients are often on multiple medications at once, kidney data sample sizes were fairly small for accurate PCA representation. 
 
 # How to run the script
 
@@ -25,4 +31,4 @@ The following will allow the user to an example data analysis with kidney cancer
 
 4. Run `python main.py`, follow the command-line instructions.
 
-To run a similar analysis for another cancer type, the user can change the kidney_filters_table in the example variables to a filter that reflect the data they would like to collect. 
+To run a similar analysis for another cancer type, the user can change the kidney_filters_table in the example_variables file to a filter that reflect the data they would like to collect. 
