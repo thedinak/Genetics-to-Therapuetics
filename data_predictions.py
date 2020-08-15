@@ -297,21 +297,20 @@ def reduction_metric_optimization(split_dfs, reduction_strategy='nan',
                                 f'{components}'] = sparse_pca_stats
     return evals_dataframes, pca_stats_total
 
-    def present_run_summary(all_results_dictionaries):
-        '''Takes a list of all evaluation dataframes and returns a dataframe
-        listing the best method for each drug and evaluation method
-        (ie accuracy, recall and etc.) '''
-        list_of_results_dfs = []
-        for eval_dict in all_results_dictionaries:
-            list_of_results_dfs.append(pd.concat(eval_dict))
-        summary_df = pd.concat(list_of_results_dfs)
-        max_values = pd.DataFrame(summary_df.unstack().max(),
-                                  columns=['values'])
-        max_values['methods'] = ""
-        for combination in max_values.index:
-            best_method = summary_df.unstack()[summary_df.unstack()
-                                               [combination] ==
-                                               max_values.loc[combination,
-                                               'values']].index.to_list()
-            max_values.at[combination, 'methods'] = best_method
-        return summary_df, max_values
+
+def present_run_summary(all_results_dictionaries):
+    '''Takes a list of all evaluation dataframes and returns a dataframe
+    listing the best method for each drug and evaluation method
+    (ie accuracy, recall and etc.) '''
+    list_of_results_dfs = []
+    for eval_dict in all_results_dictionaries:
+        list_of_results_dfs.append(pd.concat(eval_dict))
+    summary_df = pd.concat(list_of_results_dfs)
+    max_values = pd.DataFrame(summary_df.unstack().max(), columns=['values'])
+    max_values['methods'] = ""
+    for combination in max_values.index:
+        best_method = summary_df.unstack()[summary_df.unstack()[combination] ==
+                                           max_values.loc[combination,
+                                           'values']].index.to_list()
+        max_values.at[combination, 'methods'] = best_method
+    return summary_df, max_values
