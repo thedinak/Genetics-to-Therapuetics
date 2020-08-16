@@ -23,7 +23,7 @@ Some limitations of this work: it does not account for the fact that patients ar
 
 The following will allow the user to an example data analysis with kidney cancer data.
 
-1. Clone the repository `git clone https://github.com/thedinak/Genetics-to-Therapuetics.git`
+1. Clone the repository `git clone https://github.com/thedinak/genetics_to_therapuetics.git`
 
 2. Go into the folder `cd genetics_to_therapuetics`
 
